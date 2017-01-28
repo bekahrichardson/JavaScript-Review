@@ -1,6 +1,8 @@
 /* Declare and Define the functions here that will make the function calls below work properly */
 
-
+function first(names, getFirstName) {
+  getFirstName(names[0]);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -12,8 +14,9 @@ first(names, function(firstName){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
+function last(names, getLastName) {
+getLastName(names[names.length - 1]);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -26,6 +29,14 @@ last(names, function(lastName){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 //have the contains function return a boolean value for if the name is in the array or not.
+function contains(name, names, find) {
+  var found = false;
+  if (names.indexOf(name) !== -1) {
+    found = true;
+  }
+  find(found);
+  return found;
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -106,7 +117,7 @@ var users = [
   },
 ];
 getUserById('16t', users, function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + 'the name of ' + user.name + ' and the address of ' + user.address); 
+  console.log('The user with the id 16t has the email of ' + user.email + 'the name of ' + user.name + ' and the address of ' + user.address);
 });
 
 
@@ -117,8 +128,8 @@ getUserById('16t', users, function(user){
 
 
 
-//Looks through each value in the list, returning the first one that passes a truth test 
+//Looks through each value in the list, returning the first one that passes a truth test
 var numbers  = [1, 2, 3, 4, 5, 6];
-find(numbers, function(num){ 
+find(numbers, function(num){
   return num % 2 == 0; //should return 2
 })
