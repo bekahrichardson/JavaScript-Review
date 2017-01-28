@@ -6,10 +6,11 @@ var callFriend = function(){
   return callF;
 };
 
-//Above you're given a callFriend function that returns another function. 
+//Above you're given a callFriend function that returns another function.
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
-  //code here
+  var myFriend = callFriend();
+  myFriend('435-215-9248');
 
 
 
