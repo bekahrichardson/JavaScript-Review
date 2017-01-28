@@ -10,8 +10,6 @@ first(names, function(firstName){
 });
 
 
-
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 function last(names, getLastName) {
@@ -22,8 +20,6 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
   console.log('The last name in names is ', lastName);
 });
-
-
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -50,10 +46,15 @@ contains('Colt', names, function(yes){
 
 
 
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+function map(numbers, modify) {
+  var doubleNumbers = numbers.slice(0, numbers.length);
+  for (var i = 0; i < doubleNumbers.length; i++) {
+    doubleNumbers[i] = modify(doubleNumbers[i]);
+  };
+  return doubleNumbers;
+}
 
 
 var numbers = [1,2,3,4,5];
@@ -64,10 +65,19 @@ map(numbers, function(num){
 
 
 
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+function uniq(names, message) {
+  var uniqArr = names.slice(0, names.length);
+  for (var i = 0; i < uniqArr.length; i++) {
+    if (uniqArr.indexOf(uniqArr[i]) !== i) {
+      uniqArr.splice(i, 1);
+      i--;
+    }
+  };
+  message(uniqArr);
+  return uniqArr;
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -77,11 +87,12 @@ uniq(names, function(uniqArr){
 
 
 
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
-
-
+function each(names, message) {
+  for (var i = 0; i < names.length; i++) {
+    message(names[i], i);
+  };
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -89,11 +100,18 @@ each(names, function(item, indice){
 });
 
 
-
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+function getUserById(userId, users, message) {
+  var user;
+  for (var i = 0; i < users.length; i++) {
+    if (users[i]["id"] = userId) {
+      user = users[i];
+      break;
+    }
+  }
+  message(user);
+}
 
 
 var users = [
@@ -121,12 +139,14 @@ getUserById('16t', users, function(user){
 });
 
 
-
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
-
-
+function find(arr, test) {
+  for (var i = 0, i < arr.length; i++) {
+    if (test(arr[i])) {
+      return arr[i];
+    }
+  };
+}
 
 //Looks through each value in the list, returning the first one that passes a truth test
 var numbers  = [1, 2, 3, 4, 5, 6];
