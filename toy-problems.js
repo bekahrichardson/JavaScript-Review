@@ -7,7 +7,13 @@ Write a function that takes an array of integers and returns the sum of the inte
 plusOneSum([1, 2, 3, 4]); // 14
 
 */
-
+function plusOneSum(nums) {
+  var count = 0;
+  for (var i = 0; i < nums.length; i++) {
+    count += 1 + nums[i];
+  };
+  return count;
+}
 
 
 /*
@@ -17,7 +23,19 @@ Write a function that accepts a multi dimensional array and returns a flattened 
 flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 
 */
-
+function flatten(inputArray) {
+  var flatArray = inputArray.slice(0, inputArray.length);
+  for (var i = 0; i < flatArray.length; i++) {
+    if(flatArray[i].length !== undefined) {
+      var addElems = flatten(flatArray[i]);
+      flatArray.splice(i, 1)
+      for(var j = addElems.length - 1; j >= 0; j--) {
+        flatArray.splice(i, 0, addElems[j]);
+      }
+    }
+  };
+  return flatArray;
+}
 
 
 /*
@@ -25,7 +43,26 @@ flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]
 
 */
+function tripleArray(ABCs123s) {
+  var As = [];
+  var Bs = [];
+  var Cs = [];
+  for (var i = 0; i < ABCs123s.length / 3; i++) {
+    As.push(ABCs123s[i]);
+  };
+  for (var i = ABCs123s.length / 3; i < ABCs123s.length 2 / 3; i++) {
+  Bs.push(ABCs123s[i]);
+  };
+  for (var i = ABCs123s.length * 2 / 3; i < ABCs123s.length; i++) {
+  Cs.push(ABCs123s[i]);
+  };
 
+  var reOrder = [];
+  for (var i = 0; i < As.length; i++) {
+    reOrder.push(As[i],Bs[i],Cs[i]);
+  };
+  return reOrder;
+}
 
 /*
 
