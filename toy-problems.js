@@ -69,7 +69,13 @@ function tripleArray(ABCs123s) {
 There is an array of non-negative integers. A second array is formed by shuffling the elements of the first array and deleting a random element. Given these two arrays, find which element is missing in the second array.
 
 */
-
+function findMissing(origArray, shuffArray) {
+  for (var i = 0; i < origArray.length; i++) {
+    if(shuffArray.indexOf(origArray[i]) === -1) {
+      return origArray[i];
+    }
+  };
+}
 
 
 
@@ -85,7 +91,16 @@ longestWords("I gave a present to my parents") // ["present", "parents"]
 longestWords("Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo") // ["buffalo"] or ["Buffalo"]
 
 */
-
+function longestWord(sentence) {
+  var words = sentence.split(' ');
+  var longestWord = words[0];
+  for (var i = 1; i < words.length; i++) {
+    if(words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  };
+  return longestWord;
+}
 
 /*
 
@@ -94,14 +109,35 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Find the sum of all the multiples of 3 or 5 below 1000.
 
 */
-
+function multiples(num1, num2) {
+  var multiples = [];
+  for (var i = 1; i <= 1000; i++) {
+    if(i % num1 === 0 || i % num2 === 0) {
+      multiples.push(i);
+    }
+  };
+  var sum = 0;
+  for (var i = 0; i < multiples.length; i++) {
+    sum += multiples[i];
+  };
+  return sum;
+}
 
 /*
 
 Remove duplicate characters in a given string keeping only the first occurrences. For example, if the input is ‘tree traversal’ the output will be "tre avsl".
 
 */
-
+function removeDuplicates(str) {
+  var chars = str.split('');
+  for (var i = 0; i < chars.length; i++) {
+    if(chars.indexOf(chars[i]) !== i) {
+      chars.splice(i, 1);
+      i--;
+    }
+  };
+  return chars.join('');
+}
 
 
 /*
@@ -111,3 +147,13 @@ console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 
 */
+function sum(num1, num2) {
+  if (!isNaN(num1) && !isNaN(num2)) {
+    return num1 + num2;
+  }
+  else {
+    return function(num2) {
+      return num1 + num2;
+  }
+  }
+}
