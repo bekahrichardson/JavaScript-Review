@@ -41,25 +41,29 @@ var user = {
 
 //Above you're given a user object. Loop through the user object checking to make sure that each value is truthy. If it's not truthy, remove it from the object. hint: 'delete'.
 
-  //Your code here
+  for (prop in user) {
+    if (user[prop] == 0 || user[prop] == null) {
+      delete user[prop];
+    }
+  }
 
 //Once you get your truthy object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
-  //Your code here
+  user.name = 'Bekah Richardson';
+  user['username'] = 'bekahrich';
+  user.pwHash = 'cupcake';
 
 //Now console.log your object and make sure it looks right.
 
-  //Your code here
+  console.log(user);
 
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
 //create an empty object called methodCollection.
 
-  //Your code here
+  var methodCollection = {}
 
 //Now add two methods (functions that are properties on objects) to your methodCollection object. One called 'alertHello' which alerts 'hello' and another method called logHello which logs 'hello' to the console.
 
