@@ -35,7 +35,14 @@ var getRandomArbitrary = function() {
 }
 var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 
-  //code here
+  function finder(numbers) {
+    for (var i = 0; i < randomArray.length; i++) {
+      if (numbers.indexOf(getRandomArbitrary()) !== -1) {
+        found = true;
+      }
+      return found;
+    }
+  }
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -46,7 +53,8 @@ var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 var first = [1,2,3,4,5];
 var second;
 
-  //code here
+  second = first.slice(0, first.length);
+  second.push(6, 7);
 
 alert(first) //[1,2,3,4,5];
 alert(second) //[1,2,3,4,5,6,7];
@@ -60,7 +68,19 @@ alert(second) //[1,2,3,4,5,6,7];
 //write a function called longest that takes in our sentence variable, and returns the longest word in that sentence.
 var sentence = "Dev Mountain is the best"
 
-  //code here
+  function longest(sentence) {
+    if (sentence.length === 0) {
+      return sentence;
+    }
+    var words = sentence.split(' ');
+    longest = words[0];
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].length > longest.length) {
+        longest = words[i];
+      }
+    };
+    return longest;
+  }
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -71,7 +91,15 @@ var sentence = "Dev Mountain is the best"
 var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
-  //code here
+  function capitalize(sentence) {
+    var words = sentence.split(' ');
+    for (var i = 0; i < words.length; i++) {
+      var word = words[i].split('');
+      word[0] = word[0].toUpperCase();
+      words[i] = word.join('');
+    };
+    return words.join(' ');
+  }
 
 
 
